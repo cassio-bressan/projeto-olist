@@ -1,16 +1,15 @@
-# # 🐶 A entrega perfeita: como reduzir atrasos e aumentar a satisfação do cliente na Olist
+# # 🚚 Análise de Atrasos de Entrega e Impacto na Satisfação do Cliente — Olist
 
 Este projeto consiste na modelagem, organização e análise de uma base de dados contendo informações sobre raças de cães. Ele abrange a criação de tabelas normalizadas, preenchimento com dados brutos e extração de insights por meio de queries SQL. Foi desenvolvido com fins de aprendizado e portfólio.
 
 ## 📁 Estrutura do Projeto
 
-- `Criação de Tabelas/` – Scripts SQL para criar tabelas principais e intermediárias
-- `Preenchimento de Tabelas/` – Scripts Python e SQL para inserir os dados no banco
-- `Insights/` – Análises e descobertas baseadas nas queries SQL
-- `Arquivos/` – Resultados das consultas em formato .csv, notebook de apoio e scripts para conexão com o banco de dados e exportação dos dados
-	-	Schema_CTest.ipynb – Verificação da estrutura das tabelas no MySQL
-	-	to_csv.ipynb – Script para exportar os resultados das queries como .csv
-	-	Resultados_DataFrames.ipynb – Visualização dos resultados das queries diretamente como DataFrames
+- `Arquivos/` – Scripts SQL para criar tabelas principais e intermediárias
+- `Projeto/` – Resultados das consultas em formato .csv, notebook de apoio e scripts para conexão com o banco de dados e exportação dos dados
+	-	Código.ipynb – Verificação da estrutura das tabelas no MySQL
+	-	Dashboard.xlsx – Script para exportar os resultados das queries como .csv
+	-	Insights.MD – Visualização dos resultados das queries diretamente como DataFrames
+- `Tabelas/` – Scripts Python e SQL para inserir os dados no banco
 
 ## 🧠 Técnicas Utilizadas
 
@@ -25,7 +24,7 @@ Este projeto consiste na modelagem, organização e análise de uma base de dado
 
 Os dados utilizados neste projeto foram extraídos da seguinte base no Kaggle:
 
-🔗 [Dog Breed Characteristics - Kaggle](https://www.kaggle.com/datasets/marshuu/dog-breeds)
+🔗 [Brazilian E-Commerce Public Dataset by Olist - Kaggle](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce/versions/7)
 
 
 ## 🧩 Modelagem do Banco de Dados
