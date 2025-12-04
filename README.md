@@ -53,6 +53,13 @@ Os dados utilizados neste projeto foram extraídos da seguinte base no Kaggle:
     - Selecione **"Open Preview"** (ou "Abrir visualização")
  > 🔒 Por motivos de segurança, a senha de conexão ao banco de dados foi removida dos arquivos de script.
 
+## 🎨 Legenda de Cores dos Dashboards
+
+- 🟢 Verde: desempenho positivo / dentro do esperado
+- 🔴 Vermelho: desempenho crítico / atraso ou impacto negativo
+- 🟡 Amarelo: alerta / métrica que exige atenção
+- 🔵 Azul: indicador neutro / informativo
+
 ## 🤖 Apoio com IA
 
 Este projeto foi idealizado, construído e codificado por mim, com apoio pontual da Inteligência Artificial (Gemini) para revisão de queries SQL e códigos Python, boas práticas de modelagem relacional, sugestões técnicas e organização final do projeto.
