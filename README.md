@@ -45,12 +45,9 @@ Os dados utilizados neste projeto foram extraídos da seguinte base no Kaggle:
 - Como o atraso impacta a avaliação (score) dos clientes?
 - Quais estados apresentam os maiores índices de atraso?
 
-## 🚀 Como executar
+## 👀 Como visualizar os resultados
 
-1. Crie um banco de dados no MySQL
-2. Rode os scripts SQL de criação de tabelas
-3. Execute os notebooks e scripts para preencher as tabelas
-4. Explore os insights no arquivo `Insights.md`
+4. Abra o arquivo `Dashboard.xlsx` para visualizar os resultados e indicadores
 5. Para visualizar os insights com melhor formatação no VS Code:
     - Clique com o botão direito no arquivo `Insights.md`
     - Selecione **"Open Preview"** (ou "Abrir visualização")
@@ -58,4 +55,4 @@ Os dados utilizados neste projeto foram extraídos da seguinte base no Kaggle:
 
 ## 🤖 Apoio com IA
 
-Este projeto foi idealizado, construído e codificado por mim, com apoio pontual da Inteligência Artificial (ChatGPT) para revisão de queries SQL, boas práticas de modelagem relacional, sugestões técnicas e organização final do projeto.
+Este projeto foi idealizado, construído e codificado por mim, com apoio pontual da Inteligência Artificial (Gemini) para revisão de queries SQL e códigos Python, boas práticas de modelagem relacional, sugestões técnicas e organização final do projeto.
