@@ -9,9 +9,9 @@ Este projeto consiste na extração, tratamento e análise de dados de pedidos d
 - `Tabelas/` – Contém as tabelas analíticas em formato CSV geradas a partir da análise em Python e utilizadas para alimentar os dashboards.
 
 - `Projeto/` – Reúne os principais artefatos do projeto analítico.
-	- `Codigo.ipynb` – Notebook com o tratamento dos dados, criação das variáveis analíticas, cálculo dos KPIs e geração dos arquivos CSV.
+	- `Análise.ipynb` – Notebook com o tratamento dos dados, criação das variáveis analíticas, cálculo dos KPIs e geração dos arquivos CSV.
 	- `Dashboard.xlsx` – Arquivo com os dashboards interativos de KPIs, logística, análise geográfica e satisfação do cliente.
-	- `Insights.md` – Documento com a interpretação executiva dos resultados e principais conclusões do projeto.
+	- `Insights.MD` – Documento com a interpretação executiva dos resultados e principais conclusões do projeto.
 
 ## 🧠 Técnicas Utilizadas
 
@@ -47,11 +47,10 @@ Os dados utilizados neste projeto foram extraídos da seguinte base no Kaggle:
 
 ## 👀 Como visualizar os resultados
 
-4. Abra o arquivo `Dashboard.xlsx` para visualizar os resultados e indicadores
-5. Para visualizar os insights com melhor formatação no VS Code:
+1. Abra o arquivo `Dashboard.xlsx` para visualizar os resultados e indicadores
+2. Para visualizar os insights com melhor formatação no VS Code:
     - Clique com o botão direito no arquivo `Insights.md`
     - Selecione **"Open Preview"** (ou "Abrir visualização")
- > 🔒 Por motivos de segurança, a senha de conexão ao banco de dados foi removida dos arquivos de script.
 
 ## 🎨 Legenda de Cores dos Dashboards
 
@@ -63,3 +62,4 @@ Os dados utilizados neste projeto foram extraídos da seguinte base no Kaggle:
 ## 🤖 Apoio com IA
 
 Este projeto foi idealizado, construído e codificado por mim, com apoio pontual da Inteligência Artificial (Gemini) para revisão de queries SQL e códigos Python, boas práticas de modelagem relacional, sugestões técnicas e organização final do projeto.
+ > 🔒 Por motivos de segurança, a senha de conexão ao banco de dados foi removida dos arquivos de script.
