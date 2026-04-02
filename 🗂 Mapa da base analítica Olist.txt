@@ -1,0 +1,78 @@
+🗂 Mapa final da base analítica Olist
+1️⃣ Tabela orders (núcleo logístico)
+Coluna	Usar?	Observação / Derivada
+order_id	✅	PK, ligação com todas as outras tabelas
+customer_id	✅	FK → customers
+order_status	✅	Filtrar apenas entregues
+order_purchase_timestamp	✅	Base para cálculo de tempos
+order_approved_at	✅	Base para processing_time_days
+order_delivered_carrier_date	⚙️	Base opcional para análise detalhada de despacho
+order_delivered_customer_date	✅	Base para delivery_time_days
+order_estimated_delivery_date	✅	Base para late_delivery_flag
+
+Variáveis derivadas:
+
+delivery_time_days = entrega real − compra
+
+processing_time_days = aprovação − compra
+
+late_delivery_flag = 1 se entrega > prazo estimado
+
+year_month = extraído de order_purchase_timestamp
+
+2️⃣ Tabela order_items (informações de produtos por pedido)
+Coluna	Usar?	Observação / Derivada
+order_id	✅	FK → orders
+product_id	✅	FK → products
+price	✅	Base para ticket médio e valor total
+freight_value	✅	Base para frete médio / impacto no atraso
+
+Variáveis derivadas:
+
+order_total_value = soma de price + freight por pedido
+
+n_items = contagem de itens por pedido
+
+avg_item_price = preço médio por item
+
+avg_freight_value = frete médio por item
+
+3️⃣ Tabela order_reviews (satisfação do cliente)
+Coluna	Usar?	Observação / Derivada
+order_id	✅	FK → orders
+review_score	✅	Variável-alvo principal
+review_comment_message	⚙️	Opcional, análise textual
+
+Variáveis derivadas:
+
+satisfaction_level = categorização de review_score (baixa/média/alta)
+
+has_comment = indicador se o cliente comentou algo
+
+Nota: review_pk é apenas para integridade, não é usada na análise.
+
+4️⃣ Tabela products (características do produto)
+Coluna	Usar?	Observação / Derivada
+product_id	✅	PK, ligação com order_items
+product_category_name	✅	Categoria → análise de atrasos e reviews
+product_weight_g	✅	Peso do produto
+product_length_cm	✅	Comprimento
+product_height_cm	✅	Altura
+product_width_cm	✅	Largura
+
+Variáveis derivadas:
+
+product_volume = comprimento × largura × altura
+
+avg_weight, avg_volume por categoria (opcional)
+
+5️⃣ Tabela customers (informações geográficas)
+Coluna	Usar?	Observação / Derivada
+customer_id	✅	PK, ligação com orders
+customer_city	✅	Análise regional detalhada
+customer_state	✅	Agrupamento por estado
+customer_zip_code_prefix	⚙️	Opcional, análises mais detalhadas por CEP
+
+Variáveis derivadas:
+
+region_group = macro-região (Norte, Sul, Sudeste, etc.)
