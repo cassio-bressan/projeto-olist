@@ -1,68 +1,79 @@
 # Olist — Delivery Delays & Customer Satisfaction Analysis
 
-> An end-to-end data analytics project analyzing delivery performance and its relationship with customer satisfaction using the Brazilian E-Commerce Public Dataset by Olist.
+> An end-to-end data analytics project investigating delivery performance, operational bottlenecks, and the relationship between delivery delays and customer satisfaction using the Brazilian E-Commerce Public Dataset by Olist.
 
-**[View the Dashboard](#)** · **[View the Analytical Notebook](#)**
+**[View the Dashboard](./Projeto/Dashboard.xlsx)** · **[View the Analytical Notebook](./Projeto/An%C3%A1lise.ipynb)** · **[View the Business Insights](./Projeto/Insights.MD)**
 
 ---
 
 ## Project Overview
 
-This project analyzes delivery performance in a Brazilian e-commerce marketplace, with a particular focus on understanding how delivery delays affect customer satisfaction.
+This project analyzes delivery performance in a Brazilian e-commerce marketplace, with a particular focus on understanding how delivery delays are associated with customer satisfaction.
 
-The analysis was developed using the **Brazilian E-Commerce Public Dataset by Olist** and follows an end-to-end data analytics workflow, from data scoping and relational data preparation to feature engineering, exploratory analysis, business intelligence, and insight generation.
+The analysis was developed using the **Brazilian E-Commerce Public Dataset by Olist** and follows a structured end-to-end analytics workflow, from data scoping and relational preparation to data extraction, feature engineering, exploratory analysis, dashboard development, and business insight generation.
 
 The project combines:
 
-* MySQL for data scoping and analytical view creation;
-* SQL for relational data preparation;
-* Python and pandas for data treatment and analysis;
-* SQLAlchemy and PyMySQL for database extraction;
-* Microsoft Excel for interactive dashboards and visualization.
+* **MySQL** for data scoping, relational preparation, and analytical view creation;
+* **SQL** for table selection, joins, filtering, and analytical view construction;
+* **Python and pandas** for data treatment, transformation, feature engineering, and analysis;
+* **SQLAlchemy and PyMySQL** for extracting the analytical view from MySQL;
+* **Microsoft Excel** for interactive dashboards and data visualization.
 
-The main analytical focus is divided into three areas:
+The analysis is organized around three main business dimensions:
 
 1. **Logistics Performance** — identifying sellers with the highest frequency and severity of delivery delays;
-2. **Customer Satisfaction** — measuring the relationship between delivery delays and customer ratings;
-3. **Geographic Performance** — identifying states with the highest delay rates and longest delays.
+2. **Customer Satisfaction** — evaluating how customer ratings differ between delayed and on-time orders;
+3. **Geographic Performance** — identifying Brazilian states with the highest delay rates and longest average delays.
 
-The objective is not only to measure operational performance, but to connect logistics indicators with their potential impact on the customer experience.
+The objective is not simply to measure delivery performance, but to connect operational indicators with their potential implications for customer experience.
 
 ---
 
 ## Business Context
 
-In e-commerce, delivery performance is an important component of the customer experience.
+In e-commerce, delivery performance is a critical component of the customer experience.
 
-A delayed order can represent more than an operational inefficiency. When delivery expectations are not met, customer satisfaction may deteriorate, increasing the likelihood of negative reviews and potentially affecting customer retention and marketplace reputation.
+A delayed order can represent more than an operational inefficiency. When delivery expectations are not met, customer satisfaction may deteriorate, increasing the likelihood of negative reviews and potentially affecting customer trust and marketplace reputation.
 
 Based on this context, the project investigates the following central business question:
 
-> **How do delivery delays affect customer satisfaction, and where are the main operational bottlenecks?**
+> **How are delivery delays associated with customer satisfaction, and where are the main operational bottlenecks?**
 
-To answer this question, the analysis examines delivery performance across sellers and geographic regions and compares customer satisfaction between delayed and on-time orders.
+To address this question, the analysis evaluates delivery performance across sellers and Brazilian states and compares customer satisfaction between delayed and on-time orders.
 
 ---
 
 ## Business Objectives
 
-The project was designed around four main objectives:
+The project was designed around four main objectives.
 
-### 1. Measure delivery performance
+### 1. Measure Delivery Performance
 
-Calculate operational indicators capable of describing delivery efficiency, delay frequency, delay severity, and the difference between estimated and actual delivery times.
+Calculate operational indicators capable of describing:
 
-### 2. Identify operational bottlenecks
+* Delivery delay rate;
+* Average delay severity;
+* Actual delivery time;
+* Estimated delivery time;
+* Difference between estimated and actual delivery time.
 
-Determine which sellers and states present the most critical delivery performance.
+### 2. Identify Operational Bottlenecks
 
-### 3. Evaluate the impact on customer satisfaction
+Determine which sellers and Brazilian states present the most critical delivery performance.
 
-Compare customer ratings between delayed and on-time orders and measure the change in the probability of receiving the lowest possible rating.
+### 3. Evaluate Customer Satisfaction
 
-### 4. Generate actionable insights
+Compare customer ratings between delayed and on-time orders and measure how the probability of receiving the lowest possible rating changes when a delivery is delayed.
 
-Translate the analytical results into recommendations related to seller management, regional logistics, delivery estimates, and customer experience.
+### 4. Generate Actionable Insights
+
+Translate analytical results into recommendations related to:
+
+* Seller performance management;
+* Regional logistics;
+* Delivery estimates;
+* Customer experience.
 
 ---
 
@@ -72,27 +83,31 @@ The project uses the **Brazilian E-Commerce Public Dataset by Olist**, a publicl
 
 The original dataset contains multiple relational tables covering orders, customers, sellers, products, reviews, payments, and other aspects of the marketplace operation.
 
-Instead of processing the entire dataset, the project began with a deliberate **scope definition**. Only the tables and fields necessary to answer the business questions were selected.
+Rather than processing the entire dataset indiscriminately, the project began with a deliberate **scope definition**. Only the tables and fields necessary to answer the defined business questions were selected.
 
-The final analytical scope focused on five main entities:
+### Analytical Scope
 
-| Source table    | Analytical purpose                       |
-| --------------- | ---------------------------------------- |
-| `orders`        | Order lifecycle and delivery performance |
-| `order_items`   | Product, price, and freight information  |
-| `order_reviews` | Customer satisfaction                    |
-| `products`      | Product characteristics                  |
-| `customers`     | Geographic analysis                      |
+The analytical workflow focused on the following source entities:
 
-This reduced the dataset to the information required for the analysis while keeping the analytical workflow focused and manageable.
+| Source Table    | Analytical Purpose                              |
+| --------------- | ----------------------------------------------- |
+| `orders`        | Order lifecycle and delivery performance        |
+| `order_items`   | Product, seller, price, and freight information |
+| `order_reviews` | Customer satisfaction                           |
+| `products`      | Product characteristics                         |
+| `customers`     | Geographic analysis                             |
 
-### Data source
+This scoping process reduced the dataset to the information required for the analysis while keeping the workflow focused and manageable.
+
+### Original Data Source
 
 **Brazilian E-Commerce Public Dataset by Olist**
 
 Available through Kaggle:
 
-**[Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)**
+[Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
+
+The dataset is used for educational and portfolio purposes.
 
 ---
 
@@ -116,7 +131,7 @@ orders
    └── customers
 ```
 
-This structure makes it possible to analyze logistics, products, customer satisfaction, and geography within a unified analytical dataset.
+This structure provides a unified analytical dataset containing the information required to evaluate logistics, customer satisfaction, product characteristics, and geographic performance.
 
 ### Analytical Data Flow
 
@@ -124,13 +139,15 @@ This structure makes it possible to analyze logistics, products, customer satisf
 Olist Public Dataset
         │
         ▼
-     MySQL
+      MySQL
         │
-        │  Data scoping
-        │  Table selection
-        │  SQL joins
+        ├── Data scoping
+        ├── Table selection
+        ├── SQL joins
+        └── Analytical preparation
+        │
         ▼
-  vw_olist_full
+   vw_olist_full
         │
         ▼
 SQLAlchemy + PyMySQL
@@ -141,25 +158,28 @@ vw_olist_full.csv
         ▼
    Python / pandas
         │
-        │  Data treatment
-        │  Feature engineering
-        │  KPI calculation
-        │  Exploratory analysis
+        ├── Data treatment
+        ├── Feature engineering
+        ├── KPI calculation
+        └── Exploratory analysis
+        │
         ▼
 Analytical CSV datasets
         │
         ▼
-Microsoft Excel
+   Microsoft Excel
         │
         ▼
 Interactive Dashboards
 ```
 
+This workflow separates the project into distinct analytical stages while maintaining a clear path from source data to business insights.
+
 ---
 
 ## Data Preparation
 
-After defining the analytical scope and creating the `vw_olist_full` view, the data was extracted from MySQL into Python.
+After defining the analytical scope and creating the `vw_olist_full` view, the selected data was extracted from MySQL into Python.
 
 The extraction workflow uses **SQLAlchemy** and **PyMySQL** to query the analytical view and create the dataset used in the subsequent analysis.
 
@@ -173,7 +193,7 @@ The main preparation steps included:
 * Aggregation by seller;
 * Aggregation by state;
 * Comparison between delayed and on-time orders;
-* Generation of analytical datasets for the dashboard.
+* Generation of analytical datasets used by the dashboard.
 
 ---
 
@@ -212,9 +232,9 @@ late_delivery_flag =
 1 when actual delivery > estimated delivery
 ```
 
-### Order-Level Metrics
+### Additional Analytical Variables
 
-Additional variables were created to support the analysis, including:
+The Python workflow also generated variables and aggregations supporting:
 
 * Total order value;
 * Number of items per order;
@@ -230,7 +250,7 @@ Additional variables were created to support the analysis, including:
 
 ## Key Metrics
 
-The project uses operational and customer experience metrics to evaluate delivery performance.
+The analysis uses operational and customer experience metrics to evaluate delivery performance.
 
 ### Delivery Delay Rate
 
@@ -250,7 +270,7 @@ Average delivery time estimated for customers.
 
 ### Estimated vs. Actual Delivery Difference
 
-Measures the difference between the estimated and actual delivery times, providing an indication of the accuracy of delivery expectations.
+Difference between estimated and actual delivery times, providing an indication of the accuracy of delivery expectations.
 
 ### Average Customer Score
 
@@ -282,12 +302,12 @@ Ranks sellers according to the average number of days of delay.
 
 This metric measures the severity of delivery problems rather than their frequency.
 
-Analyzing both metrics together is important because a seller can have:
+Analyzing both metrics together provides a more complete view of seller performance because a seller can present:
 
-* a high frequency of delays but relatively short delays; or
-* a lower frequency of delays but significantly longer delays.
+* A high frequency of relatively short delays; or
+* A lower frequency of significantly longer delays.
 
-This distinction allows the analysis to identify different types of operational bottlenecks.
+This distinction helps identify different types of operational bottlenecks.
 
 ---
 
@@ -303,7 +323,7 @@ Compares the average review score between orders delivered within the estimated 
 
 Compares the probability of receiving the lowest possible rating in both scenarios.
 
-This analysis provides a more direct measure of extreme customer dissatisfaction than the average score alone.
+This provides a more direct view of extreme customer dissatisfaction than the average score alone.
 
 ---
 
@@ -319,7 +339,7 @@ Identifies the states where late deliveries occur most frequently.
 
 Identifies the states where delivery delays are longest.
 
-These two metrics provide complementary views of regional performance:
+These metrics provide complementary views of regional performance:
 
 > **Delay rate measures frequency, while average delay measures severity.**
 
@@ -352,7 +372,7 @@ This indicates two different operational patterns:
 * **Northeast:** higher frequency of delivery delays;
 * **North:** longer delays when delivery problems occur.
 
-The distinction is important because frequency and severity require different operational responses.
+The distinction is important because frequency and severity may require different operational responses.
 
 ---
 
@@ -372,14 +392,14 @@ This represents an approximate **39% reduction in average customer rating** when
 
 The probability of receiving the lowest possible rating also increased substantially:
 
-| Delivery status | Probability of rating 1 |
+| Delivery Status | Probability of Rating 1 |
 | --------------- | ----------------------: |
 | On time         |                    ~10% |
 | Delayed         |                    ~45% |
 
-This means that delayed orders presented approximately a **4.5× higher probability of receiving a rating of 1**.
+Delayed orders therefore presented approximately a **4.5× higher probability of receiving a rating of 1**.
 
-The result provides strong evidence that delivery performance is closely associated with customer satisfaction.
+These results provide strong evidence of a clear association between delivery delays and negative customer experiences.
 
 ---
 
@@ -387,9 +407,7 @@ The result provides strong evidence that delivery performance is closely associa
 
 The findings suggest that delivery performance should not be treated exclusively as an operational metric.
 
-The relationship between delays and customer ratings indicates that logistics performance can directly influence the customer experience.
-
-The main business implications are:
+The strong association observed between delays and customer ratings indicates that logistics performance and customer experience should be monitored together.
 
 ### Operational Efficiency
 
@@ -401,17 +419,19 @@ Delayed orders are associated with significantly lower customer ratings and a su
 
 ### Marketplace Reputation
 
-A concentration of negative reviews associated with delivery problems can affect customer trust and the perceived reliability of the marketplace.
+A concentration of negative reviews associated with delivery problems may affect customer trust and the perceived reliability of the marketplace.
 
-### Financial Impact
+### Potential Financial Impact
 
-Although financial outcomes were not directly modeled in this project, persistent negative customer experiences may contribute indirectly to higher support costs, lower retention, and increased customer acquisition pressure.
+Financial outcomes were **not directly modeled** in this project. However, persistent negative customer experiences may have indirect business consequences, such as increased support demand, lower retention, and greater pressure on customer acquisition.
+
+These should therefore be treated as **business implications rather than directly measured financial outcomes**.
 
 ---
 
 ## Recommendations
 
-Based on the findings, the following actions are recommended.
+Based on the analytical findings, the following actions are recommended.
 
 ### Prioritize Underperforming Sellers
 
@@ -437,7 +457,7 @@ Orders identified as having a high probability of delay could trigger proactive 
 
 Delivery KPIs should be analyzed alongside customer satisfaction metrics.
 
-A logistics dashboard may identify an increase in delays, but customer experience metrics reveal the potential consequence of those delays.
+A logistics dashboard may identify an increase in delays, while customer experience metrics help reveal the potential consequence of those delays.
 
 ---
 
@@ -477,7 +497,7 @@ Contains the data extraction workflow and the analytical dataset exported from M
 
 ### `Projeto/`
 
-Contains the main analysis, dashboard, and documentation.
+Contains the main analytical workflow, dashboard, and business documentation.
 
 * `Análise.ipynb` — performs data treatment, feature engineering, KPI calculation, and business analysis.
 * `Dashboard.xlsx` — contains the interactive dashboards for logistics, customer satisfaction, and geographic performance.
@@ -502,22 +522,22 @@ Documents the analytical data model, selected source fields, relationships, and 
 
 ## Technologies
 
-| Technology           | Purpose                                                                 |
-| -------------------- | ----------------------------------------------------------------------- |
-| **MySQL**            | Data scoping, relational data preparation, and analytical view creation |
-| **SQL**              | Data selection, joins, filtering, and view construction                 |
-| **Python**           | Data preparation, transformation, feature engineering, and analysis     |
-| **pandas**           | Data manipulation and analytical processing                             |
-| **SQLAlchemy**       | Database connection and data extraction                                 |
-| **PyMySQL**          | MySQL connectivity                                                      |
-| **Jupyter Notebook** | Extraction and analytical workflow                                      |
-| **Microsoft Excel**  | Dashboard development and data visualization                            |
+| Technology           | Purpose                                                             |
+| -------------------- | ------------------------------------------------------------------- |
+| **MySQL**            | Data scoping, relational preparation, and analytical view creation  |
+| **SQL**              | Data selection, joins, filtering, and view construction             |
+| **Python**           | Data preparation, transformation, feature engineering, and analysis |
+| **pandas**           | Data manipulation and analytical processing                         |
+| **SQLAlchemy**       | Database connection and data extraction                             |
+| **PyMySQL**          | MySQL connectivity                                                  |
+| **Jupyter Notebook** | Extraction and analytical workflow                                  |
+| **Microsoft Excel**  | Dashboard development and data visualization                        |
 
 ---
 
 ## Analytical Questions
 
-The project was designed to answer the following business questions:
+The project was designed to answer the following business questions.
 
 ### Logistics Performance
 
@@ -537,17 +557,6 @@ The project was designed to answer the following business questions:
 * How does the average customer rating differ between delayed and on-time orders?
 * How does the probability of receiving a rating of 1 change when an order is delayed?
 * How strongly are delivery delays associated with negative customer experiences?
-
----
-
-## Data Source
-
-The project uses the **Brazilian E-Commerce Public Dataset by Olist**, a publicly available dataset originally distributed through Kaggle.
-
-**Source:**
-[Brazilian E-Commerce Public Dataset by Olist — Kaggle](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
-
-The dataset is used for educational and portfolio purposes.
 
 ---
 
@@ -583,13 +592,13 @@ The project combines:
 
 **Data Scoping → SQL → Data Extraction → Python → Feature Engineering → Exploratory Analysis → KPI Development → Business Intelligence → Business Insights**
 
-The main objective was to demonstrate not only the ability to manipulate and visualize data, but also to transform a business problem into an analytical workflow and translate the resulting data into actionable conclusions.
+The main objective was to demonstrate not only the ability to manipulate and visualize data, but also the ability to transform a business problem into a structured analytical workflow and translate data into actionable business conclusions.
 
 ---
 
 ## Conclusion
 
-The analysis identified significant differences in delivery performance across sellers and Brazilian states and revealed a strong relationship between delivery delays and customer satisfaction.
+The analysis identified significant differences in delivery performance across sellers and Brazilian states and revealed a strong association between delivery delays and customer satisfaction.
 
 Delayed orders presented substantially lower average customer ratings and a considerably higher probability of receiving the lowest possible rating.
 
